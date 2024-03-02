@@ -2,8 +2,7 @@ import analyzer from "./analyzer.js";
 
 //TODO: escuchar eventos del DOM e invocar  los métodos del objeto `analyzer`
 const input = document.querySelector("textarea[name='user-input']");
-
-input.addEventListener("input", function () {
+const inputFunction =  function () {
   // 1 Función:Contar el numero de palabras
   const wordcount = analyzer.getWordCount(input.value);
   // tengo que acceder al ul
@@ -42,4 +41,20 @@ input.addEventListener("input", function () {
   const fifthChild = uls[0].children[4];
   //asignarle el texto al li 5
   fifthChild.innerHTML = "Suma de números:   " + sumNumber;
+
+  //6 función Longitud media de las palabras:
+  const lengthWord = analyzer.getAverageWordLength(input.value);
+  // tengo que acceder a li 6
+  const sixthChild = uls[0].children[5];
+  //asignarle el texto al li 6
+  sixthChild.innerHTML = "Longitud promedio palabra: " + lengthWord;
+}
+input.addEventListener("input",inputFunction);
+
+const button = document.getElementById("reset-button");
+
+button.addEventListener("click", function () {
+  //Borrar lo que este en el input
+  input.value="";
+  inputFunction()
 });

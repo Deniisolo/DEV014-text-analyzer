@@ -57,10 +57,6 @@ ul {
   gap: 20px;
   justify-self: center;
 }
-/* main{
-  display: grid;
-  grid-template-rows: 100px;
-} */
 .count1 {
   display: block;
   background: var(--yellow);
